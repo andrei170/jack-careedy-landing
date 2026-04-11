@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Modern Filmmaker Blueprint | Jack Careedy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #070605;
+  --teal: #477e8b;
+  --teal-bright: #5fa3b3;
+  --teal-glow: rgba(71,126,139,0.2);
+  --card-bg: rgba(255,255,255,0.03);
+  --card-border: rgba(255,255,255,0.07);
+  --white: #f5f5f5;
+  --white-70: rgba(255,255,255,0.7);
+  --white-50: rgba(255,255,255,0.5);
+  --white-30: rgba(255,255,255,0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 0;
+  background: rgba(7,6,5,0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background: var(--teal-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--teal-glow);
+}
+
+.btn-large {
+  font-size: 16px;
+  padding: 16px 40px;
+  border-radius: 10px;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 100px 0 80px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid var(--teal);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal-bright);
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  letter-spacing: -1px;
+}
+
+.hero h1 .accent {
+  color: var(--teal-bright);
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--white-70);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  margin-bottom: 56px;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--teal-bright);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--white-50);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ── VSL ── */
+.vsl-section {
+  padding: 40px 0 80px;
+}
+
+.vsl-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.vsl-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.vsl-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at center, var(--teal-glow), transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.vsl-placeholder:hover {
+  border-color: rgba(71,126,139,0.3);
+}
+
+.play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 40px var(--teal-glow);
+  z-index: 1;
+}
+
+.vsl-placeholder:hover .play-btn {
+  transform: scale(1.08);
+  background: var(--teal-bright);
+}
+
+.play-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+  margin-left: 4px;
+}
+
+.vsl-caption {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--white-50);
+  font-weight: 500;
+}
+
+/* ── SECTION SHARED ── */
+.section {
+  padding: 80px 0;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal-bright);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--white-70);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ── CARDS ── */
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--teal);
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.12);
+  border-left-color: var(--teal-bright);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  color: var(--teal-bright);
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--white-70);
+  line-height: 1.65;
+}
+
+/* ── PROBLEM GRID ── */
+.problem-section .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── SOLUTION ── */
+.solution-section {
+  padding: 80px 0;
+}
+
+.solution-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.solution-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.solution-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.solution-check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  color: var(--teal-bright);
+}
+
+.solution-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.solution-item p {
+  font-size: 14px;
+  color: var(--white-70);
+  line-height: 1.65;
+}
+
+.solution-box {
+  position: relative;
+  background: var(--card-bg);
+  border: 2px solid var(--teal);
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.solution-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(95,163,179,0.3), transparent);
+}
+
+.solution-box .big-number {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--teal-bright);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.solution-box .box-label {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.solution-box .box-sub {
+  font-size: 13px;
+  color: var(--white-50);
+  font-weight: 500;
+}
+
+/* ── SOCIAL PROOF ── */
+.proof-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.proof-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--teal-glow), transparent 70%);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.proof-section .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.proof-card {
+  text-align: center;
+  padding: 36px 24px;
+}
+
+.proof-card .proof-stat {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--teal-bright);
+  margin-bottom: 12px;
+}
+
+.proof-card h3 {
+  margin-bottom: 12px;
+}
+
+/* ── LEAD MAGNET ── */
+.lead-section {
+  padding: 80px 0;
+}
+
+.lead-box {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lead-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+.lead-box .section-title {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.lead-box .section-sub {
+  margin: 0 auto 32px;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.lead-form input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.lead-form input::placeholder {
+  color: var(--white-30);
+}
+
+.lead-form input:focus {
+  border-color: var(--teal);
+}
+
+.lead-form .btn-primary {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* ── OFFER ── */
+.offer-section {
+  padding: 80px 0;
+}
+
+.offer-box {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  overflow: hidden;
+}
+
+.offer-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.offer-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.offer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.offer-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.offer-feature svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--teal-bright);
+}
+
+.offer-feature span {
+  font-size: 15px;
+  color: var(--white-70);
+}
+
+.offer-cta {
+  text-align: center;
+}
+
+.offer-note {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--white-50);
+}
+
+/* ── AUTHORITY ── */
+.authority-section {
+  padding: 80px 0;
+}
+
+.authority-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.authority-photo {
+  width: 280px;
+  height: 320px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.authority-photo::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--teal);
+}
+
+.authority-initials {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--teal);
+  letter-spacing: 4px;
+}
+
+.authority-content h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+
+.authority-content p {
+  font-size: 15px;
+  color: var(--white-70);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.authority-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.authority-stat {
+  text-align: center;
+}
+
+.authority-stat .stat-number {
+  font-size: 18px;
+}
+
+.authority-stat .stat-label {
+  font-size: 12px;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  padding: 80px 0;
+}
+
+.faq-section .section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--teal);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+.faq-item:hover {
+  border-color: rgba(255,255,255,0.12);
+  border-left-color: var(--teal-bright);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--teal-bright);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 24px 20px;
+  font-size: 14px;
+  color: var(--white-70);
+  line-height: 1.7;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 100px 0 80px;
+  text-align: center;
+}
+
+.final-cta .section-title {
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+
+.final-cta .section-sub {
+  margin: 0 auto 40px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--white-30);
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .problem-grid,
+  .proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .solution-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-box {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .authority-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .authority-photo {
+    margin: 0 auto;
+  }
+
+  .authority-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .problem-grid,
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+  }
+
+  .stats-row {
+    gap: 24px;
+  }
+
+  .lead-box,
+  .offer-box {
+    padding: 32px 20px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .final-cta {
+    padding: 60px 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-logo">MODERN FILMMAKER</div>
+    <a href="#lead" class="btn-primary">Join 1,000+ Filmmakers</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-badge">The Modern Filmmaker Blueprint</div>
+    </div>
+    <h1 class="reveal">Stop Undercharging for Work You Know Is Worth 10x More. <span class="accent">Start Landing High-Ticket Clients.</span></h1>
+    <p class="hero-sub reveal">The system that teaches filmmakers how to find premium clients, build pitches that close, and charge what their work is actually worth.</p>
+    <div class="hero-cta reveal">
+      <a href="#offer" class="btn-primary btn-large">Get The Blueprint</a>
+    </div>
+    <div class="stats-row reveal">
+      <div class="stat-item">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1,000+</div>
+        <div class="stat-label">Filmmakers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6-Figure</div>
+        <div class="stat-label">Framework</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VSL PLACEHOLDER ── -->
+<section class="vsl-section">
+  <div class="container">
+    <div class="vsl-wrapper reveal">
+      <div class="vsl-placeholder">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="8,5 19,12 8,19"/></svg>
+        </div>
+      </div>
+      <p class="vsl-caption">Watch the free training</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM SECTION ── -->
+<section class="section problem-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">Sound Familiar?</h2>
+    </div>
+    <div class="problem-grid">
+      <!-- Card 1 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <h3>Charging $500 for $5,000 Work</h3>
+        <p>You know your work is worth more. But you keep lowering prices to win bids because you do not have a system for communicating premium value.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22,17 13.5,8.5 8.5,13.5 2,7"/><polyline points="16,17 22,17 22,11"/></svg>
+        </div>
+        <h3>Starting From Zero Every Month</h3>
+        <p>You finish a project, get paid, and immediately start hunting for the next one. No pipeline. No retainers. No recurring revenue.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a5 5 0 0 0-5 5c0 4 5 7 5 7s5-3 5-7a5 5 0 0 0-5-5z"/><circle cx="12" cy="7" r="1.5"/><path d="M12 16v6"/><path d="M8 22h8"/></svg>
+        </div>
+        <h3>Competing on Price, Not Value</h3>
+        <p>Every quote is a race to the bottom. You are competing with every other videographer in your city on price instead of positioning.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>No Consistent Client Pipeline</h3>
+        <p>Some months are great. Some months are dead. You have no system for generating a steady flow of high-ticket inquiries.</p>
+      </div>
+      <!-- Card 5 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <h3>Your Reel Does All the Talking</h3>
+        <p>You keep updating your portfolio hoping that will bring clients. It will not. The pitch is what closes deals, not the reel.</p>
+      </div>
+      <!-- Card 6 -->
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Exhausted From Hustling</h3>
+        <p>80-hour weeks, chasing gigs, editing until 3am. You got into filmmaking for the creative freedom, not to burn out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTION SECTION ── -->
+<section class="section solution-section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: 48px;">
+      <div class="section-label">The System</div>
+      <h2 class="section-title">A System for Landing Premium Clients</h2>
+    </div>
+    <div class="solution-layout">
+      <div class="solution-items">
+        <div class="solution-item reveal">
+          <svg class="solution-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <div>
+            <h3>Premium Positioning Framework</h3>
+            <p>Learn how to present yourself as a creative partner, not just a videographer. Clients see an investment, not an expense.</p>
+          </div>
+        </div>
+        <div class="solution-item reveal">
+          <svg class="solution-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <div>
+            <h3>The 3 Day Pitch Pack</h3>
+            <p>A proven framework for building pitches that communicate premium value before the client ever sees your reel.</p>
+          </div>
+        </div>
+        <div class="solution-item reveal">
+          <svg class="solution-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <div>
+            <h3>High-Ticket Client Acquisition</h3>
+            <p>Where to find premium clients, how to approach them, and how to close $5K-$15K deals consistently.</p>
+          </div>
+        </div>
+        <div class="solution-item reveal">
+          <svg class="solution-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <div>
+            <h3>Retainer Deal Structures</h3>
+            <p>Stop starting from zero. Build recurring revenue through retainer relationships that keep cash flowing monthly.</p>
+          </div>
+        </div>
+        <div class="solution-item reveal">
+          <svg class="solution-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <div>
+            <h3>Brand Building for Creatives</h3>
+            <p>Position your personal brand so clients come to you. Build authority in your niche without selling out.</p>
+          </div>
+        </div>
+      </div>
+      <div class="solution-box reveal">
+        <div class="big-number">6-FIGURE</div>
+        <div class="box-label">Creative Business Framework</div>
+        <div class="box-sub">Used by 1,000+ filmmakers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF ── -->
+<section class="section proof-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Proof</div>
+      <h2 class="section-title">What Filmmakers Are Saying</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="card proof-card reveal">
+        <div class="proof-stat">1,000+</div>
+        <h3>Subscribers</h3>
+        <p>Over 1,000 filmmakers receive The Modern Filmmaker Blueprint every week. The community is growing because the system works.</p>
+      </div>
+      <div class="card proof-card reveal">
+        <div class="proof-stat">20+</div>
+        <h3>Countries</h3>
+        <p>Jack started shooting professionally at 17 and has worked across 20+ countries. The framework is built from real experience, not theory.</p>
+      </div>
+      <div class="card proof-card reveal">
+        <div class="proof-stat">3 Day</div>
+        <h3>Pitch Pack</h3>
+        <p>The signature framework that teaches filmmakers how to build pitches that land premium clients. Built from years of closing high-ticket deals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEAD MAGNET ── -->
+<section class="section lead-section" id="lead">
+  <div class="container">
+    <div class="lead-box reveal">
+      <div class="section-label">Start Here</div>
+      <h2 class="section-title">Not Ready for the Full System? Start Here.</h2>
+      <p class="section-sub">Join 1,000+ filmmakers getting weekly insights on landing high-ticket clients.</p>
+      <form class="lead-form" onsubmit="return false;">
+        <input type="text" placeholder="First Name" required>
+        <input type="email" placeholder="Email" required>
+        <button type="submit" class="btn-primary">Send Me The Blueprint</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFER SECTION ── -->
+<section class="section offer-section" id="offer">
+  <div class="container">
+    <div class="offer-box reveal">
+      <div class="offer-header">
+        <div class="section-label">The Full System</div>
+        <h2 class="section-title">The Modern Filmmaker Blueprint</h2>
+        <p class="section-sub" style="margin: 12px auto 0;">Everything you need to stop undercharging and start landing premium clients.</p>
+      </div>
+      <div class="offer-features">
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Weekly high-value insights on landing premium clients</span>
+        </div>
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>The 3 Day Pitch Pack framework</span>
+        </div>
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Client acquisition strategies for creatives</span>
+        </div>
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Pricing and retainer deal templates</span>
+        </div>
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Brand positioning for filmmakers</span>
+        </div>
+        <div class="offer-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Access to a growing community of 1,000+ filmmakers</span>
+        </div>
+      </div>
+      <div class="offer-cta">
+        <a href="#lead" class="btn-primary btn-large">Get The Blueprint</a>
+      </div>
+      <p class="offer-note">Free. Weekly. Built for filmmakers who are done undercharging.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── AUTHORITY ── -->
+<section class="section authority-section">
+  <div class="container">
+    <div class="authority-layout reveal">
+      <div class="authority-photo">
+        <div class="authority-initials">JC</div>
+      </div>
+      <div class="authority-content">
+        <div class="section-label">Your Guide</div>
+        <h2>Meet Jack Careedy</h2>
+        <p><strong>Started at 17. Still Behind the Camera.</strong></p>
+        <p>Jack did not wait for permission. At 17, he was traveling 20+ countries as a professional photographer. Now he runs PhotoBomb Media in Melbourne and teaches 1,000+ filmmakers how to build premium creative businesses.</p>
+        <p>He built his career the same way he teaches: one high-ticket client at a time. No shortcuts. No theory. Just the system that works.</p>
+        <div class="authority-stats">
+          <div class="authority-stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="authority-stat">
+            <div class="stat-number">1,000+</div>
+            <div class="stat-label">Filmmakers</div>
+          </div>
+          <div class="authority-stat">
+            <div class="stat-number">PhotoBomb</div>
+            <div class="stat-label">Media Founder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Frequently Asked</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>I am just starting out. Is this for me?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. The system works whether you have been shooting for 6 months or 6 years. The pitch framework is designed to help filmmakers at any level communicate premium value.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>I already have clients. Will this help me charge more?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">That is exactly who this is for. If you are already getting work but undercharging, the positioning and pitch framework will help you raise your rates without losing clients.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Is this just another generic business course?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. This is built specifically for filmmakers by a filmmaker. Every strategy is designed for the creative industry, not recycled from a marketing textbook.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>How is this different from other filmmaker resources?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most resources teach you how to shoot better. This teaches you how to get paid better. The camera is not the bottleneck. The business system is.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>What does the newsletter include?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Weekly insights on finding premium clients, building pitches that close, structuring retainer deals, and positioning your brand. Straight from someone who does it every day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <div class="container reveal">
+    <div class="section-label">Take the Next Step</div>
+    <h2 class="section-title">Your Work Is Worth More Than You Are Charging.</h2>
+    <p class="section-sub">The system is free. The insights are weekly. The only thing standing between you and premium clients is the decision to start.</p>
+    <a href="#lead" class="btn-primary btn-large">Get The Blueprint</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <p>2026 Jack Careedy | The Modern Filmmaker Blueprint. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked (if it was closed)
+    if (!isActive) {
+      item.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
